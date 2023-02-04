@@ -78,6 +78,41 @@ const addBookHandler = (request, h) => {
     return response;
 };
 
+// GET /books handler
+const getAllBooksHandler = (request) => {
+    // parameter query yang optional
+    const { name, reading, finished } = request.query;
+    // filteredBooks berisi buku yang terfilter berdasarkan parameter query
+    let filteredBooks = books;
+
+    // filter buku berdasarkan name
+    if (name !== undefined) {
+        filteredBooks = filteredBooks.filter((book) => {
+            const bookName = book.name.toLowerCase();
+            const queryName = name.toLowerCase();
+            return bookName.includes(queryName);
+        });
+    // filter buku berdasarkan reading
+    } else if (reading !== undefined) {
+        filteredBooks = filteredBooks.filter((book) => book.reading === (reading === '1'));
+    // filter buku berdasarkan finished
+    } else if (finished !== undefined) {
+        filteredBooks = filteredBooks.filter((book) => book.finished === (finished === '1'));
+    }
+
+    return {
+        status: 'success',
+        data: {
+            books: filteredBooks.map((book) => ({
+                id: book.id,
+                name: book.name,
+                publisher: book.publisher,
+            })),
+        },
+    };
+};
+
 module.exports = {
     addBookHandler,
+    getAllBooksHandler,
 };
