@@ -1,7 +1,7 @@
 {
   "name": "submission",
   "version": "1.0.0",
-  "description": "bookshelf-api submission for https://dicoding.com/academies/261",
+  "description": "bookshelf-api submission for https://dicoding.com/academies/261 and https://dicoding.com/academies/342",
   "main": "index.js",
   "scripts": {
     "start": "node src/server.js",
@@ -10,13 +10,16 @@
   "author": "bagashiz",
   "license": "ISC",
   "devDependencies": {
-    "eslint": "^8.33.0",
+    "@eslint/eslintrc": "^3.0.2",
+    "@eslint/js": "^9.1.1",
+    "eslint": "^8.57.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.27.5",
-    "nodemon": "^2.0.20"
+    "eslint-plugin-import": "^2.29.1",
+    "globals": "^15.0.0",
+    "nodemon": "^3.1.0"
   },
   "dependencies": {
-    "@hapi/hapi": "^21.2.1",
-    "nanoid": "^3.3.4"
+    "@hapi/hapi": "^21.3.9",
+    "nanoid": "^3.3.7"
   }
 }
